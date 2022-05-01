@@ -1,0 +1,21 @@
+sudo docker run -it --gpus all --shm-size=8192m --network=host -v /home/iclab-rl-raining/code/RL-Grasp-with-GRCNN/:/home/code/RL-Grasp-with-GRCNN/:rw -v /home/iclab-rl-raining/datasets/:/home/datasets:rw rl_training:v1
+
+sudo docker run -it --gpus all --shm-size=8192m -P -v /home/iclab-rl-raining/code/RL-Grasp-with-GRCNN/:/home/code/RL-Grasp-with-GRCNN/:rw -v /home/iclab-rl-raining/datasets/:/home/datasets:rw rl_training:v1
+
+sudo docker run -it --gpus all --shm-size=8192m -P -v /home/luca-home/code/RL_grasp/:/home/code/RL_grasp/:rw -v /home/luca-home/datasets/:/home/datasets:rw rl_training:v1
+
+sudo docker run -it --gpus all --shm-size=8192m -P -v /home/iclab-rl-raining/code/RL_grasp/:/home/code/RL_grasp/:rw -v /home/iclab-rl-raining/datasets/:/home/datasets:rw rl_training:v1
+
+sudo docker run -it --gpus all --shm-size=8192m -P -v /home/ur5/code/RL_Grasp/:/home/code/RL_Grasp/:rw -v /home/ur5/datasets/:/home/datasets:rw rl_training:v1
+
+#server 
+sudo docker run -it --gpus all --shm-size=8192m -P -v /home/iclab/RenJie/code/od_cnn_CHANGE_TransBn_RFB/:/home/code/od_cnn_CHANGE_TransBn_RFB:rw -v /home/iclab/datasets/:/home/datasets:rw train_od_cnn:v1
+
+cd home/code/RL-Grasp-with-GRCNN/ && . devel/setup.bash
+
+roslaunch rl_training dqn_training.launch description:=""			
+
+#dl training example
+python3 train_network.py --network odc_1_bypass_v2_osa_depth_3 --dataset jacquard --dataset-path ../../datasets/Jacquard_Dataset/all/ --description odc_1_bypass_v2_osa_depth_3_jacquard --use-dropout 0 --num_gpu 0
+
+python3 train_network.py --network odc_1_bypass_v2_osa_depth_3 --dataset cornell --dataset-path ../../datasets/Cornell_Dataset/all/ --description odc_1_bypass_v2_osa_depth_3_cornell --use-dropout 1 --num_gpu 0 --batch-size 16

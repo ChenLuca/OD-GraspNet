@@ -1,0 +1,9 @@
+numpy==1.22.3
+opencv-python-headless
+matplotlib
+scikit-image
+imageio
+Pillow
+torchsummary
+tensorboardX
+imagecodecs
