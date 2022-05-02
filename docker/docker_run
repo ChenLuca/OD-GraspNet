@@ -16,6 +16,12 @@ cd home/code/RL-Grasp-with-GRCNN/ && . devel/setup.bash
 roslaunch rl_training dqn_training.launch description:=""			
 
 #dl training example
-python3 train_network.py --network odc_1_bypass_v2_osa_depth_3 --dataset jacquard --dataset-path ../../datasets/Jacquard_Dataset/all/ --description odc_1_bypass_v2_osa_depth_3_jacquard --use-dropout 0 --num_gpu 0
+python3 train_network.py --network odc_1_bypass_v2_osa_depth_3 --dataset jacquard --dataset-path ../../datasets/Jacquard_Dataset/all/ --description odc_1_bypass_v2_osa_depth_3_jacquard --use-dropout 0 --num_gpu 0 --input-size 300
 
 python3 train_network.py --network odc_1_bypass_v2_osa_depth_3 --dataset cornell --dataset-path ../../datasets/Cornell_Dataset/all/ --description odc_1_bypass_v2_osa_depth_3_cornell --use-dropout 1 --num_gpu 0 --batch-size 16
+
+# training example
+python3 train_network.py --network odc_1_bypass_v2_osa_depth_3 --dataset jacquard --dataset-path ../../datasets/Jacquard_Dataset/all/ --description odc_1_bypass_v2_osa_depth_3_input300_batchsize64_jacquard --use-dropout 0 --input-size 300 --use-rgb 0 --num_gpu 1 --batch-size 64
+
+python3 train_network.py --dataset jacquard --dataset-path ../../datasets/Jacquard_Dataset/all/ --description grcnn_input300_batchsize64_jacquard --use-dropout 0 --input-size 300 --use-rgb 0 --num_gpu 2 --batch-size 64
+

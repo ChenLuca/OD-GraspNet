@@ -105,8 +105,6 @@ Example for Jacquard dataset:
 
 ```bash
 python evaluate.py --network <Path to Trained Network> --dataset jacquard --dataset-path <Path to Dataset> --iou-eval --use-dropout 0 --input-size 300
-python3 evaluate.py --network logs/220314_1051_training_jacquard_mygrcnn_dropout0_epoch100/epoch_39_iou_0.90 --dataset jacquard --dataset-path ../../datasets/Jacquard_Dataset/all/ --iou-eval
-
 ```
 
 ## Run Tasks
