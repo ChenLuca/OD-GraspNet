@@ -31,6 +31,10 @@ def get_network(network_name):
         from .OD_ConvNet_1_dilated import GenerativeOD_dilated
         return GenerativeOD_dilated
 
+    elif network_name == 'od_1_osa_depth_3':
+        from .OD_ConvNet_1_OSA_Depth_3 import Generative_OD_1_OSA_Depth_3
+        return Generative_OD_1_OSA_Depth_3
+
     elif network_name == 'od_2':
         from .OD_ConvNet_2 import Generative_OD_2
         return Generative_OD_2
@@ -128,6 +132,10 @@ def get_network(network_name):
     elif network_name == 'odc_1_bypass_v2':
         from .ODC_ConvNet_1_Bypass_V2 import Generative_ODC_1_Bypass_V2
         return Generative_ODC_1_Bypass_V2
+
+    elif network_name == 'odc_1_osa_depth_3':
+        from .ODC_ConvNet_1_OSA_Depth_3 import Generative_ODC_1_OSA_Depth_3
+        return Generative_ODC_1_OSA_Depth_3
 
     elif network_name == 'odc_1_bypass_v2_osa_depth_3':
         from .ODC_ConvNet_1_Bypass_V2_OSA_Depth_3 import Generative_ODC_1_Bypass_V2_OSA_Depth_3
