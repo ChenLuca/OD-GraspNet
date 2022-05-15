@@ -286,6 +286,19 @@ def get_network(network_name):
     elif network_name == 'strange':
         from .osadense_graspnet import GenerativeOSADense
         return GenerativeOSADense
+    #=====================================================
+
+    elif network_name == "od_4_cbam":
+        from .OD_ConvNet_4_CBAM import Generative_OD_4_CBAM
+        return Generative_OD_4_CBAM
+
+    elif network_name == "od_4_cbam_2":
+        from .OD_ConvNet_4_CBAM_2 import Generative_OD_4_CBAM_2
+        return Generative_OD_4_CBAM_2
+
+    elif network_name == "od_shuffle_4":
+        from .OD_Shuffle_ConvNet_4 import Generative_OD_Shuffle_4
+        return Generative_OD_Shuffle_4
 
     else:
         raise NotImplementedError('Network {} is not implemented'.format(network_name))
