@@ -286,6 +286,47 @@ def get_network(network_name):
     elif network_name == 'strange':
         from .osadense_graspnet import GenerativeOSADense
         return GenerativeOSADense
+    #=====================================================
+
+    elif network_name == "od_4_cbam":
+        from .OD_ConvNet_4_CBAM import Generative_OD_4_CBAM
+        return Generative_OD_4_CBAM
+
+    elif network_name == "od_4_cbam_2":
+        from .OD_ConvNet_4_CBAM_2 import Generative_OD_4_CBAM_2
+        return Generative_OD_4_CBAM_2
+
+    elif network_name == "odc_shuffle_4":
+        from .ODC_Shuffle_ConvNet_4 import Generative_ODC_Shuffle_4
+        return Generative_ODC_Shuffle_4
+    
+    elif network_name == "odc_shuffle_v2_4":
+        from .ODC_Shuffle_v2_ConvNet_4 import Generative_ODC_Shuffle_v2_4
+        return Generative_ODC_Shuffle_v2_4
+
+    elif network_name == "odc_shuffle_v2_1":
+        from .ODC_Shuffle_v2_ConvNet_1 import Generative_ODC_Shuffle_v2_1
+        return Generative_ODC_Shuffle_v2_1
+
+    elif network_name == "odc_shuffle_v2_4_bypass":
+        from .ODC_Shuffle_v2_ConvNet_4_bypass import Generative_ODC_Shuffle_v2_4_bypass
+        return Generative_ODC_Shuffle_v2_4_bypass
+
+    elif network_name == "odc_shuffle_v3_4":
+        from .ODC_Shuffle_v3_ConvNet_4 import Generative_ODC_Shuffle_v3_4
+        return Generative_ODC_Shuffle_v3_4
+
+    elif network_name == "odc_shuffle_v4_4":
+        from .ODC_Shuffle_v4_ConvNet_4 import Generative_ODC_Shuffle_v4_4
+        return Generative_ODC_Shuffle_v4_4
+
+    elif network_name == "odc_shuffle_unet_4":
+        from .ODC_Shuffle_UNet_ConvNet_4 import Generative_ODC_Shuffle_UNet_4
+        return Generative_ODC_Shuffle_UNet_4
+
+    elif network_name == "odc_shuffle_1":
+        from .ODC_Shuffle_ConvNet_1 import Generative_ODC_Shuffle_1
+        return Generative_ODC_Shuffle_1
 
     else:
         raise NotImplementedError('Network {} is not implemented'.format(network_name))
