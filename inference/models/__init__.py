@@ -312,6 +312,14 @@ def get_network(network_name):
         from .ODC_Shuffle_v2_ConvNet_4_bypass import Generative_ODC_Shuffle_v2_4_bypass
         return Generative_ODC_Shuffle_v2_4_bypass
 
+    elif network_name == "odc_shuffle_v2_4_bypass_v2":
+        from .ODC_Shuffle_v2_ConvNet_4_bypass_v2 import Generative_ODC_Shuffle_v2_4_bypass_v2
+        return Generative_ODC_Shuffle_v2_4_bypass_v2
+
+    elif network_name == "odc_shuffle_v2_4_bypass_v3":
+        from .ODC_Shuffle_v2_ConvNet_4_bypass_v3 import Generative_ODC_Shuffle_v2_4_bypass_v3
+        return Generative_ODC_Shuffle_v2_4_bypass_v3
+
     elif network_name == "odc_shuffle_v3_4":
         from .ODC_Shuffle_v3_ConvNet_4 import Generative_ODC_Shuffle_v3_4
         return Generative_ODC_Shuffle_v3_4
