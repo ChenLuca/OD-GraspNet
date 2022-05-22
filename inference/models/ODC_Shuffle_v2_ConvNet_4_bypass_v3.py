@@ -4,12 +4,12 @@ import torch
 from inference.models.RJ_grasp_model import GraspModel, OSAModule, OSABlock, TransitionBlock
 from inference.models.cbam import CBAM
 
-class Generative_ODC_Shuffle_v2_4_bypass_v2(GraspModel):
+class Generative_ODC_Shuffle_v2_4_bypass_v3(GraspModel):
 
     def __init__(self, input_channels=4, output_channels=1, channel_size=256, dropout=False, prob=0.0):
-        super(Generative_ODC_Shuffle_v2_4_bypass_v2, self).__init__()
+        super(Generative_ODC_Shuffle_v2_4_bypass_v3, self).__init__()
 
-        print("Generative_ODC_Shuffle_v2_4_bypass_v2")
+        print("Generative_ODC_Shuffle_v2_4_bypass_v3")
 
         self.shuffle_factor = [2, 2]
         self.osa_depth = 5
