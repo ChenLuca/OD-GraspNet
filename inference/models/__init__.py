@@ -324,6 +324,14 @@ def get_network(network_name):
         from .ODC_Shuffle_UNet_ConvNet_4 import Generative_ODC_Shuffle_UNet_4
         return Generative_ODC_Shuffle_UNet_4
 
+    elif network_name == "odc_shuffle_unetcbam_4":
+        from .ODC_Shuffle_UNetCbam_ConvNet_4 import Generative_ODC_Shuffle_UNetCbam_4
+        return Generative_ODC_Shuffle_UNetCbam_4
+
+    elif network_name == "odc_shuffle_unetcbam_4_max":
+        from .ODC_Shuffle_UNetCbam_ConvNet_4_Max import Generative_ODC_Shuffle_UNetCbam_4_Max
+        return Generative_ODC_Shuffle_UNetCbam_4_Max
+
     elif network_name == "odc_shuffle_unet_1":
         from .ODC_Shuffle_UNet_ConvNet_1 import Generative_ODC_Shuffle_UNet_1
         return Generative_ODC_Shuffle_UNet_1
@@ -339,7 +347,7 @@ def get_network(network_name):
     elif network_name == "odc_shuffle_1":
         from .ODC_Shuffle_ConvNet_1 import Generative_ODC_Shuffle_1
         return Generative_ODC_Shuffle_1
-        
+
     elif network_name == "od_shuffle_4":
         from .OD_Shuffle_ConvNet_4 import Generative_OD_Shuffle_4
         return Generative_OD_Shuffle_4
