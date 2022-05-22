@@ -339,6 +339,10 @@ def get_network(network_name):
     elif network_name == "odc_shuffle_1":
         from .ODC_Shuffle_ConvNet_1 import Generative_ODC_Shuffle_1
         return Generative_ODC_Shuffle_1
+        
+    elif network_name == "od_shuffle_4":
+        from .OD_Shuffle_ConvNet_4 import Generative_OD_Shuffle_4
+        return Generative_OD_Shuffle_4
 
     else:
         raise NotImplementedError('Network {} is not implemented'.format(network_name))
