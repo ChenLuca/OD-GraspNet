@@ -69,6 +69,21 @@ class ResidualBlock(nn.Module):
         x = self.bn2(self.conv2(x))
         return x + x_in
 
+class ResNet(nn.Module):
+
+    def __init__(self, in_channels, out_channels, kernel_size=3):
+        super(ResNet, self).__init__()
+        self.resblock_1 = ResidualBlock(in_channels, out_channels)
+        self.resblock_2 = ResidualBlock(out_channels, out_channels)
+        self.resblock_3 = ResidualBlock(out_channels, out_channels)
+
+
+    def forward(self, x_in):
+        x = self.resblock_1(x_in)
+        x = self.resblock_2(x)
+        x = self.resblock_3(x)
+        return x
+
 class BasicBlock(nn.Module):
     def __init__(self, in_planes, out_planes, dropRate=0.0):
         super(BasicBlock, self).__init__()
@@ -122,6 +137,7 @@ class TransitionBlock(nn.Module):
         # return F.avg_pool2d(out, 2)
         return out
 
+
 class OSAModule(nn.Module):
     def __init__(self, in_planes, out_planes, dropRate=0.0):
         super(OSAModule, self).__init__()
@@ -135,6 +151,18 @@ class OSAModule(nn.Module):
     def forward(self, x):
         out = self.conv(self.relu(self.bn(x)))
         return out
+
+class DenseBlock(nn.Module):
+    def __init__(self, nb_layers, in_planes, growth_rate, block, dropRate=0.0):
+        super(DenseBlock, self).__init__()
+        self.layer = self._make_layer(block, in_planes, growth_rate, nb_layers, dropRate)
+    def _make_layer(self, block, in_planes, growth_rate, nb_layers, dropRate):
+        layers = []
+        for i in range(nb_layers):
+            layers.append(block(in_planes+i*growth_rate, growth_rate, dropRate))
+        return nn.Sequential(*layers)
+    def forward(self, x):
+        return self.layer(x)
         
 class OSABlock(nn.Module):
     def __init__(self, nb_layers, in_planes, growth_rate, block, dropRate=0.0):
@@ -288,5 +316,8 @@ class DenseNet3(nn.Module):
         return out
 
 if __name__=="__main__":
-    net = OSABlock(10, 10, 12, OSAModule).to("cuda")
+
+    net = OSABlock(6, 10, 12, OSAModule).to("cuda")
+    # net = ResNet(3, 12)
+
     summary(net, (10, 10, 10))

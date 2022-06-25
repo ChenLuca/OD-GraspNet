@@ -53,6 +53,11 @@ def get_network(network_name):
         from .OD_ConvNet_4 import Generative_OD_4
         return Generative_OD_4
 
+
+    elif network_name == 'd_4':
+        from .D_ConvNet_4 import Generative_D_4
+        return Generative_D_4
+
     #=====================================================
     
     #OSA-Dense Identity-Mapping Grasp ConvNet
@@ -125,9 +130,9 @@ def get_network(network_name):
     #=====================================================
     #OSA-Dense CBAM Grasp ConvNet
 
-    elif network_name == 'odc_1':
-        from .ODC_ConvNet_1 import Generative_ODC_1
-        return Generative_ODC_1
+    elif network_name == 'odc_4':
+        from .ODC_ConvNet_4 import Generative_ODC_4
+        return Generative_ODC_4
 
     elif network_name == 'odc_1_bypass_v2':
         from .ODC_ConvNet_1_Bypass_V2 import Generative_ODC_1_Bypass_V2
@@ -303,6 +308,10 @@ def get_network(network_name):
     elif network_name == "odc_shuffle_v2_4":
         from .ODC_Shuffle_v2_ConvNet_4 import Generative_ODC_Shuffle_v2_4
         return Generative_ODC_Shuffle_v2_4
+
+    elif network_name == "odc_shuffle_v2_4_mish":
+        from .ODC_Shuffle_v2_ConvNet_4_mish import Generative_ODC_Shuffle_v2_4_mish
+        return Generative_ODC_Shuffle_v2_4_mish
 
     elif network_name == "odc_shuffle_v2_1":
         from .ODC_Shuffle_v2_ConvNet_1 import Generative_ODC_Shuffle_v2_1
