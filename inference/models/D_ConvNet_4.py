@@ -1,7 +1,7 @@
 import torch.nn as nn
 import torch.nn.functional as F
 
-from inference.models.RJ_grasp_model import GraspModel, OSAModule, OSABlock, TransitionBlock
+from inference.models.RJ_grasp_model import GraspModel, OSAModule, DenseBlock, TransitionBlock, BasicBlock
 
 class Generative_OD_4(GraspModel):
 
@@ -19,13 +19,13 @@ class Generative_OD_4(GraspModel):
         self.conv_out_size = channel_size * 4
 
         self.osa_depth = 5
-        self.osa_conv_kernal = [128, 40, 48, 56]
+        self.osa_conv_kernal = [64, 40, 48, 56]
         self.trans_conv_kernal = [128, 128, 192, 256]
         self.osa_drop_rate = 0.0
         self.osa_reduction = 1.0
 
          # 1st block
-        self.block1 = OSABlock(self.osa_depth, self.conv_out_size, self.osa_conv_kernal[0], OSAModule, self.osa_drop_rate)
+        self.block1 = DenseBlock(self.osa_depth, self.conv_out_size, self.osa_conv_kernal[0], BasicBlock, self.osa_drop_rate)
         self.trans1 = TransitionBlock(self.osa_conv_kernal[0]*self.osa_depth, self.trans_conv_kernal[0], dropRate=self.osa_drop_rate)
 
         self.trans_bn = nn.BatchNorm2d(self.trans_conv_kernal[0])

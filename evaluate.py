@@ -126,7 +126,8 @@ if __name__ == '__main__':
                 pass
 
         start_time = time.time()
-
+        image_num = 0
+        success_flag = 1
         with torch.no_grad():
             for idx, (x, y, didx, rot, zoom) in enumerate(test_data):
                 xc = x.to(device)
@@ -142,8 +143,10 @@ if __name__ == '__main__':
                                                        threshold=args.iou_threshold
                                                        )
                     if s:
+                        success_flag = 1
                         results['correct'] += 1
                     else:
+                        success_flag = 0
                         results['failed'] += 1
 
                 if args.jacquard_output:
@@ -154,14 +157,21 @@ if __name__ == '__main__':
                             f.write(g.to_jacquard(scale=1024 / 300) + '\n')
 
                 if args.vis:
+                    if success_flag:
+                        in_image_number = str(image_num) + str("_success")
+                    else:
+                        in_image_number = str(image_num) + str("_failed")
+
                     save_results(
                         rgb_img=test_data.dataset.get_rgb(didx, rot, zoom, normalise=False),
                         depth_img=test_data.dataset.get_depth(didx, rot, zoom),
                         grasp_q_img=q_img,
                         grasp_angle_img=ang_img,
                         no_grasps=args.n_grasps,
-                        grasp_width_img=width_img
+                        grasp_width_img=width_img,
+                        image_num=in_image_number
                     )
+                image_num += 1
 
 
         avg_time = (time.time() - start_time) / len(test_data)

@@ -116,7 +116,7 @@ def plot_grasp(
         fig.savefig('results/{}.png'.format(time))
 
 
-def save_results(rgb_img, grasp_q_img, grasp_angle_img, depth_img=None, no_grasps=1, grasp_width_img=None):
+def save_results(rgb_img, grasp_q_img, grasp_angle_img, depth_img=None, no_grasps=1, grasp_width_img=None, image_num=0):
     """
     Plot the output of a network
     :param rgb_img: RGB Image
@@ -136,7 +136,7 @@ def save_results(rgb_img, grasp_q_img, grasp_angle_img, depth_img=None, no_grasp
     ax.imshow(rgb_img)
     ax.set_title('RGB')
     ax.axis('off')
-    fig.savefig('results/rgb.png')
+    fig.savefig('results/rgb'+ str(image_num) +'.png')
 
     if depth_img.any():
         fig = plt.figure(figsize=(10, 10))
@@ -148,7 +148,7 @@ def save_results(rgb_img, grasp_q_img, grasp_angle_img, depth_img=None, no_grasp
             g.plot(ax)
         ax.set_title('Depth')
         ax.axis('off')
-        fig.savefig('results/depth.png')
+        fig.savefig('results/depth'+ str(image_num) +'.png')
 
     fig = plt.figure(figsize=(10, 10))
     plt.ion()
@@ -159,7 +159,7 @@ def save_results(rgb_img, grasp_q_img, grasp_angle_img, depth_img=None, no_grasp
         g.plot(ax)
     ax.set_title('Grasp')
     ax.axis('off')
-    fig.savefig('results/grasp.png')
+    fig.savefig('results/grasp'+ str(image_num) +'.png')
 
     fig = plt.figure(figsize=(10, 10))
     plt.ion()
@@ -169,7 +169,7 @@ def save_results(rgb_img, grasp_q_img, grasp_angle_img, depth_img=None, no_grasp
     ax.set_title('Q')
     ax.axis('off')
     plt.colorbar(plot)
-    fig.savefig('results/quality.png')
+    fig.savefig('results/quality'+ str(image_num) +'.png')
 
     fig = plt.figure(figsize=(10, 10))
     plt.ion()
@@ -179,7 +179,7 @@ def save_results(rgb_img, grasp_q_img, grasp_angle_img, depth_img=None, no_grasp
     ax.set_title('Angle')
     ax.axis('off')
     plt.colorbar(plot)
-    fig.savefig('results/angle.png')
+    fig.savefig('results/angle'+ str(image_num) +'.png')
 
     fig = plt.figure(figsize=(10, 10))
     plt.ion()
@@ -189,7 +189,7 @@ def save_results(rgb_img, grasp_q_img, grasp_angle_img, depth_img=None, no_grasp
     ax.set_title('Width')
     ax.axis('off')
     plt.colorbar(plot)
-    fig.savefig('results/width.png')
+    fig.savefig('results/width'+ str(image_num) +'.png')
 
     fig.canvas.draw()
     plt.close(fig)

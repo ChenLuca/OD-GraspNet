@@ -19,8 +19,8 @@ class Generative_OD_4(GraspModel):
         self.conv_out_size = channel_size * 4
 
         self.osa_depth = 5
-        self.osa_conv_kernal = [128, 40, 48, 56]
-        self.trans_conv_kernal = [128, 128, 192, 256]
+        self.osa_conv_kernal = [32, 40, 48, 56]
+        self.trans_conv_kernal = [64, 128, 192, 256]
         self.osa_drop_rate = 0.0
         self.osa_reduction = 1.0
 

@@ -253,8 +253,10 @@ def run():
     dataset = Dataset(args.dataset_path,
                       output_size=args.input_size,
                       ds_rotate=args.ds_rotate,
-                      random_rotate=True,
-                      random_zoom=True,
+                    #   random_rotate=True,
+                    #   random_zoom=True,
+                      random_rotate=False,
+                      random_zoom=False,
                       include_depth=args.use_depth,
                       include_rgb=args.use_rgb)
     logging.info('Dataset size is {}'.format(dataset.length))
