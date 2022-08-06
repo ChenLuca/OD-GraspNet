@@ -1,16 +1,11 @@
 # OD-GraspNet
 
----
+### We present a **One-Shot Aggregation Dense Grasp Network** for robotic grasping.
 
-#### We present a One-Shot Aggregation Dense Grasp Network for robotic grasping.
-
----
 ### Network structure contains the following methods:
 - [One-shot aggregation dense network](https://arxiv.org/abs/1904.09730v1)
 - [Cbam](https://arxiv.org/abs/1807.06521)
 - [PixelShuffle](https://arxiv.org/abs/1609.05158)
-
----
 
 ## Requirements
 
@@ -26,13 +21,11 @@
 - pyrealsense2
 - Pillow
 
----
 ## Datasets
 
 This repository supports both the [Cornell Grasping Dataset](https://www.kaggle.com/oneoneliu/cornell-grasp) and
 [Jacquard Dataset](https://jacquard.liris.cnrs.fr/).
 
----
 
 ## Model Training
 
@@ -65,8 +58,6 @@ Example for Jacquard dataset:
 ```bash
 python evaluate.py --network <Path to Trained Network> --dataset jacquard --dataset-path <Path to Dataset> --iou-eval
 ```
-
----
 
 # Reference
 ### This repository is based on [Antipodal Robotic Grasping](https://github.com/skumra/robotic-grasping).
